@@ -14,6 +14,11 @@
 		30421F2A2807DAE40056E49E /* PlasticFishesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30421F292807DAE40056E49E /* PlasticFishesTests.swift */; };
 		30421F342807DAE40056E49E /* PlasticFishesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30421F332807DAE40056E49E /* PlasticFishesUITests.swift */; };
 		30421F362807DAE40056E49E /* PlasticFishesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30421F352807DAE40056E49E /* PlasticFishesUITestsLaunchTests.swift */; };
+		30421F43280862170056E49E /* FishDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30421F42280862170056E49E /* FishDetailView.swift */; };
+		30421F45280862250056E49E /* Fish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30421F44280862250056E49E /* Fish.swift */; };
+		30421F47280862350056E49E /* FishesModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30421F46280862350056E49E /* FishesModelView.swift */; };
+		30421F4C280862A70056E49E /* FishRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30421F4B280862A70056E49E /* FishRowView.swift */; };
+		30421F4E280863130056E49E /* FishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30421F4D280863130056E49E /* FishListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		30421F2F2807DAE40056E49E /* PlasticFishesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlasticFishesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30421F332807DAE40056E49E /* PlasticFishesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticFishesUITests.swift; sourceTree = "<group>"; };
 		30421F352807DAE40056E49E /* PlasticFishesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticFishesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		30421F42280862170056E49E /* FishDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishDetailView.swift; sourceTree = "<group>"; };
+		30421F44280862250056E49E /* Fish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fish.swift; sourceTree = "<group>"; };
+		30421F46280862350056E49E /* FishesModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishesModelView.swift; sourceTree = "<group>"; };
+		30421F4B280862A70056E49E /* FishRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishRowView.swift; sourceTree = "<group>"; };
+		30421F4D280863130056E49E /* FishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +104,10 @@
 		30421F172807DAE20056E49E /* PlasticFishes */ = {
 			isa = PBXGroup;
 			children = (
+				30421F4A280862660056E49E /* Models */,
+				30421F492808625B0056E49E /* ModelViews */,
+				30421F482808623F0056E49E /* Views */,
 				30421F182807DAE20056E49E /* PlasticFishesApp.swift */,
-				30421F1A2807DAE20056E49E /* ContentView.swift */,
 				30421F1C2807DAE40056E49E /* Assets.xcassets */,
 				30421F1E2807DAE40056E49E /* Preview Content */,
 			);
@@ -125,6 +137,33 @@
 				30421F352807DAE40056E49E /* PlasticFishesUITestsLaunchTests.swift */,
 			);
 			path = PlasticFishesUITests;
+			sourceTree = "<group>";
+		};
+		30421F482808623F0056E49E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				30421F1A2807DAE20056E49E /* ContentView.swift */,
+				30421F4D280863130056E49E /* FishListView.swift */,
+				30421F4B280862A70056E49E /* FishRowView.swift */,
+				30421F42280862170056E49E /* FishDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		30421F492808625B0056E49E /* ModelViews */ = {
+			isa = PBXGroup;
+			children = (
+				30421F46280862350056E49E /* FishesModelView.swift */,
+			);
+			path = ModelViews;
+			sourceTree = "<group>";
+		};
+		30421F4A280862660056E49E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				30421F44280862250056E49E /* Fish.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +297,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				30421F1B2807DAE20056E49E /* ContentView.swift in Sources */,
+				30421F4C280862A70056E49E /* FishRowView.swift in Sources */,
+				30421F43280862170056E49E /* FishDetailView.swift in Sources */,
+				30421F47280862350056E49E /* FishesModelView.swift in Sources */,
+				30421F4E280863130056E49E /* FishListView.swift in Sources */,
 				30421F192807DAE20056E49E /* PlasticFishesApp.swift in Sources */,
+				30421F45280862250056E49E /* Fish.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
