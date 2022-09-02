@@ -14,6 +14,6 @@ struct Fish: Codable, Identifiable {
     let uuid: String
 
     var imageUrl: URL {
-        URL(string: "https://plasticfishes.herokuapp.com/\(id).png")!
+        URL(string: "https://plasticfishes.fly.dev/\(id).png")!
     }
 }
