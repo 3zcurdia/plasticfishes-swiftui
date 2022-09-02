@@ -9,5 +9,6 @@ import Foundation
 import Amaca
 
 struct API {
-    static let client = Amaca.Client("https://plasticfishes.fly.dev/", session: URLSession.shared)
+    static let host = "https://plasticfishes.onrender.com/"
+    static let client = Amaca.Client("https://plasticfishes.onrender.com/", session: URLSession.shared)
 }
