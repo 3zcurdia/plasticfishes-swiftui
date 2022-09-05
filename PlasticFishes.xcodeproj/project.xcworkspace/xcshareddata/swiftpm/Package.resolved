@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "amaca",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/3zcurdia/Amaca",
+      "state" : {
+        "branch" : "main",
+        "revision" : "b89e23fe622037a15fa5f5fbe6788178a8eb79cb"
+      }
+    }
+  ],
+  "version" : 2
+}

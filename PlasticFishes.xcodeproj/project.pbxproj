@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3014C7A8288F117400D37252 /* Amaca in Frameworks */ = {isa = PBXBuildFile; productRef = 3014C7A7288F117400D37252 /* Amaca */; };
+		3005E98F28C5A64C007C6472 /* Amaca in Frameworks */ = {isa = PBXBuildFile; productRef = 3005E98E28C5A64C007C6472 /* Amaca */; };
+		3005E99228C5B096007C6472 /* StorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005E99128C5B096007C6472 /* StorageType.swift */; };
+		3005E99428C5B4D6007C6472 /* StorageBucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3005E99328C5B4D6007C6472 /* StorageBucket.swift */; };
 		3014C7AA288F141D00D37252 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3014C7A9288F141D00D37252 /* Api.swift */; };
 		30421F192807DAE20056E49E /* PlasticFishesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30421F182807DAE20056E49E /* PlasticFishesApp.swift */; };
 		30421F1B2807DAE20056E49E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30421F1A2807DAE20056E49E /* ContentView.swift */; };
@@ -41,7 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3014C7A5288F113400D37252 /* Amaca */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Amaca; path = ../Amaca; sourceTree = "<group>"; };
+		3005E99128C5B096007C6472 /* StorageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageType.swift; sourceTree = "<group>"; };
+		3005E99328C5B4D6007C6472 /* StorageBucket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageBucket.swift; sourceTree = "<group>"; };
 		3014C7A9288F141D00D37252 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		30421F152807DAE20056E49E /* PlasticFishes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlasticFishes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30421F182807DAE20056E49E /* PlasticFishesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticFishesApp.swift; sourceTree = "<group>"; };
@@ -65,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3014C7A8288F117400D37252 /* Amaca in Frameworks */,
+				3005E98F28C5A64C007C6472 /* Amaca in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,18 +89,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3014C7A4288F113400D37252 /* Packages */ = {
+		3005E99028C5B062007C6472 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				3014C7A5288F113400D37252 /* Amaca */,
+				3005E99128C5B096007C6472 /* StorageType.swift */,
+				3005E99328C5B4D6007C6472 /* StorageBucket.swift */,
 			);
-			name = Packages;
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		30421F0C2807DAE20056E49E = {
 			isa = PBXGroup;
 			children = (
-				3014C7A4288F113400D37252 /* Packages */,
 				30421F172807DAE20056E49E /* PlasticFishes */,
 				30421F282807DAE40056E49E /* PlasticFishesTests */,
 				30421F322807DAE40056E49E /* PlasticFishesUITests */,
@@ -118,6 +121,7 @@
 		30421F172807DAE20056E49E /* PlasticFishes */ = {
 			isa = PBXGroup;
 			children = (
+				3005E99028C5B062007C6472 /* Storage */,
 				30421F4A280862660056E49E /* Models */,
 				30421F492808625B0056E49E /* ModelViews */,
 				30421F482808623F0056E49E /* Views */,
@@ -198,7 +202,7 @@
 			);
 			name = PlasticFishes;
 			packageProductDependencies = (
-				3014C7A7288F117400D37252 /* Amaca */,
+				3005E98E28C5A64C007C6472 /* Amaca */,
 			);
 			productName = PlasticFishes;
 			productReference = 30421F152807DAE20056E49E /* PlasticFishes.app */;
@@ -273,7 +277,7 @@
 			);
 			mainGroup = 30421F0C2807DAE20056E49E;
 			packageReferences = (
-				3014C7A6288F117400D37252 /* XCRemoteSwiftPackageReference "Amaca" */,
+				3005E98D28C5A64C007C6472 /* XCRemoteSwiftPackageReference "Amaca" */,
 			);
 			productRefGroup = 30421F162807DAE20056E49E /* Products */;
 			projectDirPath = "";
@@ -317,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3005E99228C5B096007C6472 /* StorageType.swift in Sources */,
 				30421F1B2807DAE20056E49E /* ContentView.swift in Sources */,
 				30421F4C280862A70056E49E /* FishRowView.swift in Sources */,
 				30421F43280862170056E49E /* FishDetailView.swift in Sources */,
@@ -325,6 +330,7 @@
 				30421F192807DAE20056E49E /* PlasticFishesApp.swift in Sources */,
 				3014C7AA288F141D00D37252 /* Api.swift in Sources */,
 				30421F45280862250056E49E /* Fish.swift in Sources */,
+				3005E99428C5B4D6007C6472 /* StorageBucket.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,7 +657,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3014C7A6288F117400D37252 /* XCRemoteSwiftPackageReference "Amaca" */ = {
+		3005E98D28C5A64C007C6472 /* XCRemoteSwiftPackageReference "Amaca" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/3zcurdia/Amaca";
 			requirement = {
@@ -662,9 +668,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3014C7A7288F117400D37252 /* Amaca */ = {
+		3005E98E28C5A64C007C6472 /* Amaca */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3014C7A6288F117400D37252 /* XCRemoteSwiftPackageReference "Amaca" */;
+			package = 3005E98D28C5A64C007C6472 /* XCRemoteSwiftPackageReference "Amaca" */;
 			productName = Amaca;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -10,5 +10,7 @@ import Amaca
 
 struct API {
     static let host = "https://plasticfishes.onrender.com/"
-    static let client = Amaca.Client("https://plasticfishes.onrender.com/", session: URLSession.shared)
+    static var client: Amaca.Client = {
+        return Amaca.Client(host, session: URLSession.shared)
+    }()
 }

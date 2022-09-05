@@ -8,9 +8,39 @@
 import Foundation
 import Amaca
 
+extension Amaca {
+    struct FishesApiCacheHandler: CacheResponseDelegate {
+        let bucket: StorageBucket
+
+        init() {
+            bucket = StorageBucket(type: .cache)
+        }
+
+        func willMakeRequest(urlRequest: URLRequest) {}
+
+        func fetchCachedRequest(urlRequest: URLRequest) -> Data? {
+            return bucket.read("fishes.json")
+        }
+
+        func didFinishRequestSuccessful(data: Data?) {
+            guard let data = data else { return }
+            _ = bucket.writeIfExist("fishes.json", data: data)
+        }
+
+        func didFinishRequestUnsuccessful(urlRequest: URLRequest, data: Data?) {}
+    }
+}
+
 class FishesViewModel: ObservableObject {
     @Published var fishes: [Fish] = []
-    let endpoint: Amaca.Endpoint<Fish> = Amaca.Endpoint<Fish>(client: API.client, route: "/api/fishes")
+    var apiClient: Amaca.Client = {
+        var client = API.client
+        client.cacheDelegate = Amaca.FishesApiCacheHandler()
+        return client
+    }()
+    lazy var endpoint: Amaca.Endpoint<Fish> = {
+        return Amaca.Endpoint<Fish>(client: apiClient, route: "/api/fishes")
+    }()
 
     @MainActor
     func fetch() async {
