@@ -55,17 +55,22 @@ struct DetailHeader: View {
                 .scaledToFit()
                 .frame(height: 250)
                 .clipped()
-            AsyncImage(url: fishUrl) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 200, height: 200)
-            } placeholder: {
-                Image(systemName: "checkmark.icloud")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 128, height: 128)
-                    .foregroundColor(.secondary)
+            CachedAsyncImage(url: fishUrl) { phase in
+                switch phase {
+                case .empty:
+                    Image(systemName: "icloud.and.arrow.down")
+                case .success(let image):
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 200, height: 200)
+                default:
+                    Image(systemName: "checkmark.icloud")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 128, height: 128)
+                        .foregroundColor(.secondary)
+                }
             }
         }
     }

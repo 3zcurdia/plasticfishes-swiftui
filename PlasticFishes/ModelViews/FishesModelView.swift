@@ -24,7 +24,7 @@ extension Amaca {
 
         func didFinishRequestSuccessful(data: Data?) {
             guard let data = data else { return }
-            _ = bucket.writeIfExist("fishes.json", data: data)
+            _ = bucket.writeUnlessExist("fishes.json", data: data)
         }
 
         func didFinishRequestUnsuccessful(urlRequest: URLRequest, data: Data?) {}

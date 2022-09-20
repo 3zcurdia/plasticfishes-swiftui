@@ -23,7 +23,7 @@ struct StorageBucket {
         return try? Data(contentsOf: url(for: filename))
     }
 
-    func writeIfExist(_ filename: String, data: Data) -> Bool {
+    func writeUnlessExist(_ filename: String, data: Data) -> Bool {
         if FileManager.default.fileExists(atPath: url(for: filename).path) {
             return true
         }

@@ -11,7 +11,7 @@ import CryptoKit
 
 final class DigestTest: XCTestCase {
     let lipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a tellus eu elit rhoncus bibendum."
-    
+
     func sha256(_ string: String) -> String {
         guard let data = string.data(using: .utf8) else { return "" }
 

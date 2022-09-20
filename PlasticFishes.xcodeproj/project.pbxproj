@@ -25,6 +25,9 @@
 		30421F4E280863130056E49E /* FishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30421F4D280863130056E49E /* FishListView.swift */; };
 		3052052C28D96B3A001F99F7 /* DigestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3052052B28D96B3A001F99F7 /* DigestTest.swift */; };
 		3052053028D96ED9001F99F7 /* Checksum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3052052F28D96ED9001F99F7 /* Checksum.m */; };
+		3052053228D97303001F99F7 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3052053128D97303001F99F7 /* ImageCache.swift */; };
+		3052053428D97855001F99F7 /* CachedAsyncImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3052053328D97855001F99F7 /* CachedAsyncImageViewModel.swift */; };
+		3052053628D97B69001F99F7 /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3052053528D97B69001F99F7 /* CachedAsyncImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		3052052D28D96EAF001F99F7 /* Checksum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Checksum.h; sourceTree = "<group>"; };
 		3052052E28D96ED8001F99F7 /* PlasticFishes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlasticFishes-Bridging-Header.h"; sourceTree = "<group>"; };
 		3052052F28D96ED9001F99F7 /* Checksum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Checksum.m; sourceTree = "<group>"; };
+		3052053128D97303001F99F7 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		3052053328D97855001F99F7 /* CachedAsyncImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImageViewModel.swift; sourceTree = "<group>"; };
+		3052053528D97B69001F99F7 /* CachedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,7 @@
 			children = (
 				3005E99128C5B096007C6472 /* StorageType.swift */,
 				3005E99328C5B4D6007C6472 /* StorageBucket.swift */,
+				3052053128D97303001F99F7 /* ImageCache.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -175,6 +182,7 @@
 				30421F4D280863130056E49E /* FishListView.swift */,
 				30421F4B280862A70056E49E /* FishRowView.swift */,
 				30421F42280862170056E49E /* FishDetailView.swift */,
+				3052053528D97B69001F99F7 /* CachedAsyncImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				30421F46280862350056E49E /* FishesModelView.swift */,
+				3052053328D97855001F99F7 /* CachedAsyncImageViewModel.swift */,
 			);
 			path = ModelViews;
 			sourceTree = "<group>";
@@ -333,15 +342,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				3005E99228C5B096007C6472 /* StorageType.swift in Sources */,
+				3052053428D97855001F99F7 /* CachedAsyncImageViewModel.swift in Sources */,
 				30421F1B2807DAE20056E49E /* ContentView.swift in Sources */,
 				30421F4C280862A70056E49E /* FishRowView.swift in Sources */,
 				30421F43280862170056E49E /* FishDetailView.swift in Sources */,
 				30421F47280862350056E49E /* FishesModelView.swift in Sources */,
 				30421F4E280863130056E49E /* FishListView.swift in Sources */,
+				3052053228D97303001F99F7 /* ImageCache.swift in Sources */,
 				30421F192807DAE20056E49E /* PlasticFishesApp.swift in Sources */,
 				3014C7AA288F141D00D37252 /* Api.swift in Sources */,
 				30421F45280862250056E49E /* Fish.swift in Sources */,
 				3005E99428C5B4D6007C6472 /* StorageBucket.swift in Sources */,
+				3052053628D97B69001F99F7 /* CachedAsyncImage.swift in Sources */,
 				3052053028D96ED9001F99F7 /* Checksum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

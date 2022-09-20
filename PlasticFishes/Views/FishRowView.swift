@@ -11,18 +11,23 @@ struct FishRowView: View {
     let fish: Fish
     var body: some View {
         HStack {
-            AsyncImage(url: fish.imageUrl) { image in
-                image
-                    .renderingMode(.original)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 50, height: 50)
-            } placeholder: {
-                Image(systemName: "checkmark.icloud")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-                    .foregroundColor(.secondary)
+            CachedAsyncImage(url: fish.imageUrl) { phase in
+                switch phase {
+                case .empty:
+                    Image(systemName: "icloud.and.arrow.down")
+                case .success(let image):
+                    image
+                        .renderingMode(.original)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 50, height: 50)
+                default:
+                    Image(systemName: "checkmark.icloud")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.secondary)
+                }
             }
             VStack(alignment: .leading) {
                 Text(fish.name)
