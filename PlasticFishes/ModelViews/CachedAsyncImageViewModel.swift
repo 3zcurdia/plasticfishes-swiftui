@@ -15,29 +15,42 @@ class CachedAsyncImageViewModel: ObservableObject {
 
     @Published var phase: AsyncImagePhase
     let url: URL
-    var manager: ImageCacheManager?
+    var manager: DataCacheManager?
     lazy var urlHash: String = {
         return Checksum.sha1(url.absoluteString)
     }()
 
-    init(url: URL, cacheManager: ImageCacheManager? = nil) {
+    init(url: URL, cacheManager: DataCacheManager? = nil) {
         self.url = url
         self.manager = cacheManager
         self.phase = .empty
     }
 
     func load() async {
-        if let image = manager?[urlHash] {
-            self.phase = .success(Image(uiImage: image))
+        if let data = manager?[urlHash],
+           let image = image(from: data) {
+            self.phase = .success(image)
             return
         }
         guard let (data, _) = try? await URLSession.shared.data(from: url),
-              let uiImage = UIImage(data: data) else {
+              let image = image(from: data) else {
             self.phase = .failure(CachedAsyncImageError.loading("Unable to fetch image"))
                   return
         }
 
-        self.phase = .success(Image(uiImage: uiImage))
-        manager?[urlHash] = uiImage
+        self.phase = .success(image)
+        manager?[urlHash] = data
+    }
+    
+    private func image(from data: Data) -> Image? {
+#if os(macOS)
+        guard let nsImage = NSImage(data: data) else { return nil }
+        
+        return Image(nsImage: nsImage)
+#else
+        guard let uiImage = UIImage(data: data) else { return nil }
+
+        return Image(uiImage: uiImage)
+#endif
     }
 }

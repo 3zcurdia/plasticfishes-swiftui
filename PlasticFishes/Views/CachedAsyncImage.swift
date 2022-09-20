@@ -16,7 +16,7 @@ struct CachedAsyncImage<Content>: View where Content: View {
         url: URL,
         @ViewBuilder content: @escaping (AsyncImagePhase) -> Content
     ) {
-        _viewModel = StateObject(wrappedValue: CachedAsyncImageViewModel(url: url, cacheManager: ImageCache.shared))
+        _viewModel = StateObject(wrappedValue: CachedAsyncImageViewModel(url: url, cacheManager: DataCache.shared))
         self.content = content
     }
 
