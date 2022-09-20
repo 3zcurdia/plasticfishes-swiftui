@@ -41,11 +41,11 @@ class CachedAsyncImageViewModel: ObservableObject {
         self.phase = .success(image)
         manager?[urlHash] = data
     }
-    
+
     private func image(from data: Data) -> Image? {
 #if os(macOS)
         guard let nsImage = NSImage(data: data) else { return nil }
-        
+
         return Image(nsImage: nsImage)
 #else
         guard let uiImage = UIImage(data: data) else { return nil }

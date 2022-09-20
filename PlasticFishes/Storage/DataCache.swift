@@ -47,7 +47,6 @@ struct DataCache: DataCacheManager {
     }
 }
 
-
 struct DataMemoryCache: DataCacheManager {
     typealias DataCacheType = NSCache<NSString, NSData>
     static let shared = DataMemoryCache()
