@@ -28,7 +28,7 @@ struct CachedAsyncImage<Content>: View where Content: View {
 
 struct CachedAsyncImage_Previews: PreviewProvider {
     static var previews: some View {
-        CachedAsyncImage(url: URL(string: "\(API.host)/red.png")! ) { phase in
+        CachedAsyncImage(url: URL(string: "\(API.host)/blue.png")! ) { phase in
             switch phase {
             case .empty:
                 ProgressView()

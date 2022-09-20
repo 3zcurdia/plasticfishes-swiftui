@@ -8,34 +8,46 @@
 import SwiftUI
 
 struct FishDetailView: View {
+    @Environment(\.dismiss) var dismiss
     let fish: Fish
     var body: some View {
         ScrollView {
             DetailHeader(fishUrl: fish.imageUrl)
-                .ignoresSafeArea(edges: .top)
             VStack(alignment: .leading) {
-                Group {
-                    Text(fish.name)
-                        .font(.title)
-                    Text(fish.uuid)
-                        .font(.subheadline)
+                Text(fish.name)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+                    .padding(.horizontal)
+                Text(fish.uuid)
+                    .font(.subheadline)
                     .foregroundColor(.secondary)
-                }
-                .padding(.horizontal)
-
-                Divider()
+                    .padding([.horizontal, .bottom])
 
                 Text(fish.text)
                     .padding(.horizontal)
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
+        .ignoresSafeArea(.all, edges: .top)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left.circle.fill")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                }
+
+            }
+        }
     }
 }
 
 struct FishDetailView_Previews: PreviewProvider {
     static let fish = Fish(
-        id: "blue",
+        id: "red",
         name: "Blue Fish",
         text: "lorem ipsum dolor quet sit amet consectetur adipsum lorem ipsum dolor quet sit amet consectetur adipsum",
         uuid: "1234-123456-23456-3456"
@@ -52,20 +64,21 @@ struct DetailHeader: View {
         ZStack {
             Image("sea")
                 .resizable()
-                .scaledToFit()
-                .frame(height: 250)
+                .scaledToFill()
+                .frame(height: 280)
                 .clipped()
             CachedAsyncImage(url: fishUrl) { phase in
                 switch phase {
                 case .empty:
-                    Image(systemName: "icloud.and.arrow.down")
+                    ProgressView()
+                        .frame(width: 200, height: 200)
                 case .success(let image):
                     image
                         .resizable()
                         .scaledToFill()
                         .frame(width: 200, height: 200)
                 default:
-                    Image(systemName: "checkmark.icloud")
+                    Image(systemName: "xmark.icloud")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 128, height: 128)

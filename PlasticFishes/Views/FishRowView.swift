@@ -15,17 +15,20 @@ struct FishRowView: View {
                 switch phase {
                 case .empty:
                     Image(systemName: "icloud.and.arrow.down")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 80, height: 80)
                 case .success(let image):
                     image
                         .renderingMode(.original)
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 50, height: 50)
+                        .frame(width: 80, height: 80)
                 default:
-                    Image(systemName: "checkmark.icloud")
+                    Image(systemName: "xmark.icloud")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 50, height: 50)
+                        .frame(width: 80, height: 80)
                         .foregroundColor(.secondary)
                 }
             }

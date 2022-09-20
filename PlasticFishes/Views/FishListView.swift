@@ -8,26 +8,21 @@
 import SwiftUI
 
 struct FishListView: View {
-    @ObservedObject var fishesVM = FishesViewModel()
+    @ObservedObject var viewModel = FishesViewModel()
 
     var body: some View {
         NavigationView {
-            ScrollView {
-                LazyVStack {
-                    ForEach(fishesVM.fishes) { fish in
-                        NavigationLink {
-                            FishDetailView(fish: fish)
-                        } label: {
-                            FishRowView(fish: fish)
-                            Image(systemName: "chevron.right")
-                                .foregroundColor(.secondary)
-                        }
-                    }
+            List(viewModel.fishes) { fish in
+                NavigationLink {
+                    FishDetailView(fish: fish)
+                } label: {
+                    FishRowView(fish: fish)
                 }
-                .padding()
+                .listRowSeparator(.hidden)
             }
-            .navigationTitle("🐟 PlasticFishes")
-            .task { await fishesVM.fetch() }
+            .listStyle(.plain)
+            .navigationTitle("PlasticFishes")
+            .task { await viewModel.fetch() }
         }
     }
 }
