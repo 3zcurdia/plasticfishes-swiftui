@@ -23,6 +23,8 @@
 		30421F47280862350056E49E /* FishesModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30421F46280862350056E49E /* FishesModelView.swift */; };
 		30421F4C280862A70056E49E /* FishRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30421F4B280862A70056E49E /* FishRowView.swift */; };
 		30421F4E280863130056E49E /* FishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30421F4D280863130056E49E /* FishListView.swift */; };
+		3052052C28D96B3A001F99F7 /* DigestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3052052B28D96B3A001F99F7 /* DigestTest.swift */; };
+		3052053028D96ED9001F99F7 /* Checksum.m in Sources */ = {isa = PBXBuildFile; fileRef = 3052052F28D96ED9001F99F7 /* Checksum.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,10 @@
 		30421F46280862350056E49E /* FishesModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishesModelView.swift; sourceTree = "<group>"; };
 		30421F4B280862A70056E49E /* FishRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishRowView.swift; sourceTree = "<group>"; };
 		30421F4D280863130056E49E /* FishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishListView.swift; sourceTree = "<group>"; };
+		3052052B28D96B3A001F99F7 /* DigestTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigestTest.swift; sourceTree = "<group>"; };
+		3052052D28D96EAF001F99F7 /* Checksum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Checksum.h; sourceTree = "<group>"; };
+		3052052E28D96ED8001F99F7 /* PlasticFishes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlasticFishes-Bridging-Header.h"; sourceTree = "<group>"; };
+		3052052F28D96ED9001F99F7 /* Checksum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Checksum.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,9 @@
 				3014C7A9288F141D00D37252 /* Api.swift */,
 				30421F1C2807DAE40056E49E /* Assets.xcassets */,
 				30421F1E2807DAE40056E49E /* Preview Content */,
+				3052052D28D96EAF001F99F7 /* Checksum.h */,
+				3052052F28D96ED9001F99F7 /* Checksum.m */,
+				3052052E28D96ED8001F99F7 /* PlasticFishes-Bridging-Header.h */,
 			);
 			path = PlasticFishes;
 			sourceTree = "<group>";
@@ -145,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				30421F292807DAE40056E49E /* PlasticFishesTests.swift */,
+				3052052B28D96B3A001F99F7 /* DigestTest.swift */,
 			);
 			path = PlasticFishesTests;
 			sourceTree = "<group>";
@@ -256,6 +266,7 @@
 				TargetAttributes = {
 					30421F142807DAE20056E49E = {
 						CreatedOnToolsVersion = 13.3.1;
+						LastSwiftMigration = 1400;
 					};
 					30421F242807DAE40056E49E = {
 						CreatedOnToolsVersion = 13.3.1;
@@ -331,6 +342,7 @@
 				3014C7AA288F141D00D37252 /* Api.swift in Sources */,
 				30421F45280862250056E49E /* Fish.swift in Sources */,
 				3005E99428C5B4D6007C6472 /* StorageBucket.swift in Sources */,
+				3052053028D96ED9001F99F7 /* Checksum.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30421F2A2807DAE40056E49E /* PlasticFishesTests.swift in Sources */,
+				3052052C28D96B3A001F99F7 /* DigestTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +499,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PlasticFishes/Preview Content\"";
@@ -505,6 +519,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.3zcurdia.PlasticFishes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PlasticFishes/PlasticFishes-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -515,6 +531,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PlasticFishes/Preview Content\"";
@@ -534,6 +551,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.3zcurdia.PlasticFishes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PlasticFishes/PlasticFishes-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
