@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@MainActor
 struct CachedAsyncImage<Content>: View where Content: View {
     @StateObject var viewModel: CachedAsyncImageViewModel
     private let content: (AsyncImagePhase) -> Content
@@ -16,7 +15,7 @@ struct CachedAsyncImage<Content>: View where Content: View {
         url: URL,
         @ViewBuilder content: @escaping (AsyncImagePhase) -> Content
     ) {
-        _viewModel = StateObject(wrappedValue: CachedAsyncImageViewModel(url: url, cacheManager: DataCache.shared))
+        _viewModel = StateObject(wrappedValue: CachedAsyncImageViewModel(url: url))
         self.content = content
     }
 

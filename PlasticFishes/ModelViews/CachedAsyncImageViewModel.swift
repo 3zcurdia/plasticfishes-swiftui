@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+@MainActor
 class CachedAsyncImageViewModel: ObservableObject {
     enum CachedAsyncImageError: Error {
         case loading(String)
@@ -15,19 +16,18 @@ class CachedAsyncImageViewModel: ObservableObject {
 
     @Published var phase: AsyncImagePhase
     let url: URL
-    var manager: DataCacheManager?
+    var manager: DataCacheManager = DataCache.shared
     lazy var urlHash: String = {
         return Checksum.sha1(url.absoluteString)
     }()
 
-    init(url: URL, cacheManager: DataCacheManager? = nil) {
+    init(url: URL) {
         self.url = url
-        self.manager = cacheManager
         self.phase = .empty
     }
 
     func load() async {
-        if let data = manager?[urlHash],
+        if let data = manager[urlHash],
            let image = image(from: data) {
             self.phase = .success(image)
             return
@@ -39,7 +39,7 @@ class CachedAsyncImageViewModel: ObservableObject {
         }
 
         self.phase = .success(image)
-        manager?[urlHash] = data
+        manager[urlHash] = data
     }
 
     private func image(from data: Data) -> Image? {

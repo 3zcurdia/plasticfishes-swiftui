@@ -31,6 +31,7 @@ extension Amaca {
     }
 }
 
+@MainActor
 class FishesViewModel: ObservableObject {
     @Published var fishes: [Fish] = []
     var apiClient: Amaca.Client = {
@@ -42,7 +43,6 @@ class FishesViewModel: ObservableObject {
         return Amaca.Endpoint<Fish>(client: apiClient, route: "/api/fishes")
     }()
 
-    @MainActor
     func fetch() async {
         do {
             self.fishes = try await endpoint.show()
