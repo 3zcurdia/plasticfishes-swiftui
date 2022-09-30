@@ -46,7 +46,8 @@ class FishesViewModel: ObservableObject {
     func fetch() async {
         do {
             self.fishes = try await endpoint.show()
-        } catch {
+        } catch (let error) {
+            debugPrint(error)
             print("Oups an error occur!!")
         }
     }

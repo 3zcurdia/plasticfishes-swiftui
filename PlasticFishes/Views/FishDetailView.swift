@@ -23,10 +23,9 @@ struct FishDetailView: View {
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .padding([.horizontal, .bottom])
-
                 Text(fish.text)
                     .padding(.horizontal)
-            }
+            }.padding()
         }
         .ignoresSafeArea(.all, edges: .top)
         .navigationBarBackButtonHidden(true)
@@ -47,7 +46,7 @@ struct FishDetailView: View {
 
 struct FishDetailView_Previews: PreviewProvider {
     static let fish = Fish(
-        id: "red",
+        id: "blue",
         name: "Blue Fish",
         text: "lorem ipsum dolor quet sit amet consectetur adipsum lorem ipsum dolor quet sit amet consectetur adipsum",
         uuid: "1234-123456-23456-3456"

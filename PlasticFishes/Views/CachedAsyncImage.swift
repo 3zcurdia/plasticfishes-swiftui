@@ -8,20 +8,19 @@
 import SwiftUI
 
 struct CachedAsyncImage<Content>: View where Content: View {
-    @StateObject var viewModel: CachedAsyncImageViewModel
+    @ObservedObject var viewModel: CachedAsyncImageViewModel
     private let content: (AsyncImagePhase) -> Content
 
     init(
         url: URL,
         @ViewBuilder content: @escaping (AsyncImagePhase) -> Content
     ) {
-        _viewModel = StateObject(wrappedValue: CachedAsyncImageViewModel(url: url))
+        _viewModel = ObservedObject(wrappedValue: CachedAsyncImageViewModel(url: url))
         self.content = content
     }
 
     var body: some View {
         content(viewModel.phase)
-            .task { await viewModel.load() }
     }
 }
 
