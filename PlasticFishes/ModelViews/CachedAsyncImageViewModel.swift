@@ -15,7 +15,7 @@ class CachedAsyncImageViewModel: ObservableObject {
     }
 
     @Published var phase: AsyncImagePhase
-    
+
     private let url: URL
     private var manager: DataCacheManager = DataCache.shared
     private lazy var urlHash: String = {

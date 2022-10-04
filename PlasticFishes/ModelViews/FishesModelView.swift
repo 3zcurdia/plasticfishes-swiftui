@@ -34,6 +34,7 @@ extension Amaca {
 @MainActor
 class FishesViewModel: ObservableObject {
     @Published var fishes: [Fish] = []
+    private var result: [Fish] = []
     var apiClient: Amaca.Client = {
         var client = API.client
         client.cacheDelegate = Amaca.FishesApiCacheHandler()
@@ -43,10 +44,21 @@ class FishesViewModel: ObservableObject {
         return Amaca.Endpoint<Fish>(client: apiClient, route: "/api/fishes")
     }()
 
+    func filterBy(_ text: String) {
+        if text.isEmpty {
+            fishes = result
+        } else {
+            fishes = result.filter { fish in
+                fish.name.lowercased().contains(text.lowercased())
+            }
+        }
+    }
+
     func fetch() async {
         do {
-            self.fishes = try await endpoint.show()
-        } catch (let error) {
+            self.result = try await endpoint.show()
+            self.fishes = self.result
+        } catch let error {
             debugPrint(error)
             print("Oups an error occur!!")
         }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FishListView: View {
     @ObservedObject var viewModel = FishesViewModel()
+    @State var searchText = ""
 
     var body: some View {
         NavigationView {
@@ -22,7 +23,11 @@ struct FishListView: View {
             }
             .listStyle(.plain)
             .navigationTitle("PlasticFishes")
-            .task { await viewModel.fetch() }
+            .searchable(text: $searchText)
+            .onChange(of: searchText) { viewModel.filterBy($0) }
+            .task {
+                await viewModel.fetch()
+            }
         }
     }
 }
